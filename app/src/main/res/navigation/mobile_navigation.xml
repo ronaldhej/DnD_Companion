@@ -28,4 +28,10 @@
         android:name="com.github.and_project_kotlin.ui.inventory.Inventory"
         android:label="@string/title_inventory"
         tools:layout="@layout/fragment_inventory"/>
+
+    <fragment
+        android:id="@+id/navigation_characters"
+        android:name="com.github.and_project_kotlin_final.ui.characters.CharacterMenu"
+        android:label="@string/title_characterSheet"
+        tools:layout="@layout/fragment_characters"/>
 </navigation>

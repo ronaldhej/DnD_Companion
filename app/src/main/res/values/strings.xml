@@ -6,12 +6,14 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="title_inventory">Inventory</string>
-
+    <string name="title_characterSheet">Character Sheet</string>
+    <string name="title_characters">Characters</string>
     // Prompts
     <string name="prompt_search">Search</string>
 
     // Actions
     <string name="action_search">Search</string>
+
     // Placeholder Strings
     <string name="placeholder_inventory_item">Inventory Item</string>
     <string name="placeholder_quantity">Quantity</string>
