@@ -27,11 +27,28 @@
         android:id="@+id/navigation_inventory"
         android:name="com.github.and_project_kotlin.ui.inventory.Inventory"
         android:label="@string/title_inventory"
-        tools:layout="@layout/fragment_inventory"/>
+        tools:layout="@layout/fragment_inventory">
+        <action
+            android:id="@+id/action_navigation_inventory_to_inventoryItemDetailed"
+            app:destination="@id/inventoryItemDetailed"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit"
+            app:popEnterAnim="@anim/fragment_open_enter"
+            app:popExitAnim="@anim/fragment_open_exit" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_characters"
         android:name="com.github.and_project_kotlin_final.ui.characters.CharacterMenu"
         android:label="@string/title_characterSheet"
         tools:layout="@layout/fragment_characters"/>
+    <fragment
+        android:id="@+id/inventoryItemDetailed"
+        android:name="com.github.and_project_kotlin_final.ui.inventory.detailed.InventoryItemDetailed"
+        android:label="fragment_inventory_item_detailed"
+        tools:layout="@layout/fragment_inventory_item_detailed" >
+        <argument
+            android:name="characterName"
+            app:argType="string" />
+    </fragment>
 </navigation>

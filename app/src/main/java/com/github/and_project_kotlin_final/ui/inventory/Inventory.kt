@@ -1,33 +1,23 @@
 package com.github.and_project_kotlin.ui.inventory
 
-import android.app.ActionBar
-import android.app.Activity
-import android.app.SearchManager
 import android.content.Context
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
+import android.util.Log
 import android.view.*
-import android.widget.Toast
-import androidx.appcompat.widget.AppCompatSeekBar
 import androidx.fragment.app.Fragment
 import androidx.appcompat.widget.Toolbar
-import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.NavigationUI
-import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.appcompat.widget.SearchView
-import androidx.core.content.getSystemService
-import androidx.core.view.MenuItemCompat
 import com.github.and_project_kotlin_final.R
-import com.github.and_project_kotlin_final.adapter.InventoryAdapter
+import com.github.and_project_kotlin_final.adapter.CharacterAdapter
+import com.github.and_project_kotlin_final.model.Characters.Character
 import com.github.and_project_kotlin_final.model.InventoryItem
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
-class Inventory : Fragment()  {
+class Inventory : Fragment() {
     private lateinit var recyclerView: RecyclerView
-    private lateinit var InventoryAdapter: RecyclerView.Adapter<*>
+    private lateinit var CharacterAdapter: RecyclerView.Adapter<*>
     private lateinit var viewManager: RecyclerView.LayoutManager
 
 
@@ -41,34 +31,61 @@ class Inventory : Fragment()  {
         val view = inflater.inflate(R.layout.fragment_inventory, container, false)
 
 
+        val fab: FloatingActionButton = view.findViewById(R.id.floatingActionButtonInventory)
         val toolbar: Toolbar = view.findViewById(R.id.toolbar)
         toolbar.inflateMenu(R.menu.menu_inventory)
+        fab.setOnClickListener {view ->
+            Log.d("BRUH", "Hello")
+        }
 
 
 
+        val characters: MutableList<Character> = ArrayList()
+        val items: MutableCollection<InventoryItem> = ArrayList()
 
-        val inventoryData: MutableList<InventoryItem> = ArrayList()
-        inventoryData.add(InventoryItem("Sword", 1))
-        inventoryData.add(InventoryItem("Potion", 6))
-        inventoryData.add(InventoryItem("Gold", 98))
-        inventoryData.add(InventoryItem("Bucket", 1))
-        inventoryData.add(InventoryItem("Sword", 1))
-        inventoryData.add(InventoryItem("Potion", 6))
-        inventoryData.add(InventoryItem("Gold", 98))
-        inventoryData.add(InventoryItem("Bucket", 1))
-        inventoryData.add(InventoryItem("Sword", 1))
-        inventoryData.add(InventoryItem("Potion", 6))
-        inventoryData.add(InventoryItem("Gold", 98))
-        inventoryData.add(InventoryItem("Bucket", 1))
-
+        characters.add(
+            Character(
+                "Greg",
+                items,
+                11
+            )
+        )
+        characters.add(
+            Character(
+                "Dave",
+                items,
+                6
+            )
+        )
+        characters.add(
+            Character(
+                "Thor",
+                items,
+                3
+            )
+        )
+        characters.add(
+            Character(
+                "bruh",
+                items,
+                4
+            )
+        )
+        characters.add(
+            Character(
+                "Rhazksi",
+                items,
+                2
+            )
+        )
 
         viewManager = LinearLayoutManager(context)
-        InventoryAdapter = InventoryAdapter(inventoryData)
+        CharacterAdapter = CharacterAdapter(characters)
 
         recyclerView = view.findViewById(R.id.recyclerViewInventory)
         recyclerView.hasFixedSize()
         recyclerView.layoutManager = viewManager
-        recyclerView.adapter = InventoryAdapter
+        recyclerView.adapter = CharacterAdapter
 
         return view
     }
@@ -93,11 +110,5 @@ class Inventory : Fragment()  {
         super.onPrepareOptionsMenu(menu)
         val searchManager = activity?.getSystemService(Context.SEARCH_SERVICE)
     }
-
-
-
-
-
-
 
 }

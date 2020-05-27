@@ -1,5 +1,9 @@
 package com.github.and_project_kotlin_final.adapter
 
+import android.content.ContentValues.TAG
+import android.content.DialogInterface
+import android.icu.util.ULocale
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +15,7 @@ import com.github.and_project_kotlin_final.model.InventoryItem
 class InventoryAdapter(private val itemDataset: MutableList<InventoryItem>) :
         RecyclerView.Adapter<InventoryAdapter.ViewHolder>() {
 
+
         class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
             val tvName: TextView = view.findViewById(R.id.tv_item_name)
             val tvQuantity : TextView = view.findViewById(R.id.tv_quantity)
@@ -21,7 +26,8 @@ class InventoryAdapter(private val itemDataset: MutableList<InventoryItem>) :
             val inflater = LayoutInflater.from(parent.context)
             val view = inflater.inflate(R.layout.item_inventory_item, parent, false)
 
-                return ViewHolder(view);
+
+            return ViewHolder(view)
         }
 
         override fun getItemCount(): Int {
@@ -33,6 +39,5 @@ class InventoryAdapter(private val itemDataset: MutableList<InventoryItem>) :
             holder.tvQuantity.text = itemDataset[position].quantity.toString()
         }
 
-
-
 }
+

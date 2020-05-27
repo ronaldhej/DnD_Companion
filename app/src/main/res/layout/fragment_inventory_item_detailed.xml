@@ -6,8 +6,9 @@
     tools:context=".ui.inventory.detailed.InventoryItemDetailed">
 
     <TextView
+        android:id="@+id/tv_item_details"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Hello" />
+        android:text="This is the detailed page" />
 
 </FrameLayout>
